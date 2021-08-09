@@ -1,0 +1,28 @@
+table_name: raw_payments
+metrics:
+  - row_count
+  - missing_count
+tests:
+  - row_count > 0
+columns:
+  id:
+    metric_groups:
+      - duplicates
+    tests:
+      - duplicate_count == 0
+      - missing_count == 0
+  order_id:
+    tests:
+      - missing_count == 0
+  payment_method:
+    valid_values:
+      - credit_card
+      - coupon
+      - bank_transfer
+      - gift_card
+    tests:
+      - invalid_count == 0
+sql_metrics:
+  - sql_file: ./raw_payments/relationship_raw_orders.sql
+    tests:
+      - invalid == 0

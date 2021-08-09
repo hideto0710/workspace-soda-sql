@@ -1,0 +1,12 @@
+table_name: raw_customers
+metrics:
+  - row_count
+tests:
+  - row_count > 0
+columns:
+  id:
+    metric_groups:
+      - duplicates
+    tests:
+      - duplicate_count == 0
+      - missing_count == 0

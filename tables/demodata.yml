@@ -1,0 +1,34 @@
+table_name: demodata
+filter: "date = DATE '{{ date }}'"
+metrics:
+  - row_count
+  - max
+tests:
+  - row_count > 0
+columns:
+  id:
+    valid_format: uuid
+    metric_groups:
+      - duplicates
+    tests:
+      - invalid_count == 0
+      - duplicate_count == 0
+  feepct:
+    valid_format: number_percentage
+    tests:
+      - invalid_count == 0
+  size:
+    tests:
+      - max < 10000
+  country:
+    valid_values:
+      - UK
+      - Netherlands
+      - US
+      - Spain
+    tests:
+      - invalid_count == 0
+sql_metrics:
+  - sql_file: ./demodata/total_size_us.sql
+    tests:
+      - total_size_us < 30000
