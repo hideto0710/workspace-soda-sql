@@ -3,6 +3,7 @@ filter: "date = DATE '{{ date }}'"
 metrics:
   - row_count
   - max
+  - avg
 tests:
   - row_count > 0
 columns:
@@ -20,6 +21,11 @@ columns:
   size:
     tests:
       - max < 10000
+    sql_metrics:
+      - sql_file: ./demodata/avg_size_us.sql
+        tests:
+          - avg_size_us - avg < 10000
+          - avg - avg_size_us > -10000
   country:
     valid_values:
       - UK
@@ -28,7 +34,3 @@ columns:
       - Spain
     tests:
       - invalid_count == 0
-sql_metrics:
-  - sql_file: ./demodata/total_size_us.sql
-    tests:
-      - total_size_us < 30000
