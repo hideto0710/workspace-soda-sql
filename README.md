@@ -1,5 +1,7 @@
 # workspace-soda-sql
 
+see [microsoft/vscode-remote-release#5388](https://github.com/microsoft/vscode-remote-release/issues/5388).
+
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/hideto0710/workspace-soda-sql)
 
 ## Testing
