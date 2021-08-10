@@ -3,8 +3,5 @@
     "dockerComposeFile": "../docker-compose.yml",
     "workspaceFolder": "/workspace",
     "service": "console",
-    "remoteUser": "vscode",
-    "remoteEnv": { 
-        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
-    }
+    "remoteUser": "vscode"
 }
