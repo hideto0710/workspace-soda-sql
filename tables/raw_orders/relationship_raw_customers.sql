@@ -1,5 +1,7 @@
 SELECT
-    COUNT(*) as invalid
-FROM raw_orders
-LEFT JOIN raw_customers ON raw_orders.user_id = raw_customers.id
-WHERE raw_customers.id IS NULL
+    COUNT(child.user_id) as invalid
+FROM raw_orders as child
+LEFT JOIN raw_customers as parent 
+    ON child.user_id = parent.id
+WHERE child.user_id IS NOT NULL
+    AND parent.id IS NULL
