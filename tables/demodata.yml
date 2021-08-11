@@ -27,10 +27,6 @@ columns:
           - avg_size_us - avg < 10000
           - avg - avg_size_us > -10000
   country:
-    valid_values:
-      - UK
-      - Netherlands
-      - US
-      - Spain
+    valid_values: ["Netherlands", "Spain", "UK", "US"]
     tests:
       - invalid_count == 0

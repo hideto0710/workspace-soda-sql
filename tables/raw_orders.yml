@@ -14,16 +14,11 @@ columns:
   user_id:
     tests:
       - missing_count == 0
+    sql_metrics:
+      - sql_file: ./raw_orders/relationship_raw_customers.sql
+        tests:
+          - invalid == 0
   status:
-    valid_values:
-      - placed
-      - shipped
-      - completed
-      - return_pending
-      - returned
+    valid_values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
     tests:
       - invalid_count == 0
-sql_metrics:
-  - sql_file: ./raw_orders/relationship_raw_customers.sql
-    tests:
-      - invalid == 0
