@@ -25,7 +25,7 @@ columns:
       - sql_file: ./demodata/avg_size_us.sql
         tests:
           - avg_size_us - avg < 10000
-          - avg - avg_size_us > -10000
+          - avg_size_us - avg > -10000
   country:
     valid_values: ["Netherlands", "Spain", "UK", "US"]
     tests:
